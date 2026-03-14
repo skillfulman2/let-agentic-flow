@@ -1,0 +1,10 @@
+results.tsv
+run.log
+feedback/*.wav
+node_modules/
+app/node_modules/
+app/.svelte-kit/
+app/build/
+.playwright-results.json
+test-results/
+app/test-results/

@@ -1,0 +1,23 @@
+services:
+  bot:
+    build: ./bot
+    container_name: autobuilder-bot
+    restart: unless-stopped
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - ALLOWED_USER_IDS=${ALLOWED_USER_IDS}
+      - AUTOBUILDER_IMAGE=autobuilder
+      - MODEL=${MODEL:-}
+      - MAX_BUDGET_USD=${MAX_BUDGET_USD:-}
+      - CPU_LIMIT=${CPU_LIMIT:-2}
+      - MEM_LIMIT=${MEM_LIMIT:-4g}
+      - WORKSPACES_DIR=/workspaces
+    volumes:
+      # Docker socket so the bot can spawn agent containers
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Shared workspace directory
+      - workspaces:/workspaces
+
+volumes:
+  workspaces:

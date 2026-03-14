@@ -1,0 +1,10 @@
+{
+  "name": "autobuilder-harness",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.49.0",
+    "lighthouse": "^13.0.3"
+  }
+}
